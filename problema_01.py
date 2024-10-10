@@ -19,12 +19,13 @@ def Join():
 
 # Full Join
 def FullJoin():
-    salida2 = vec1[:]
+    salida2 = vec1
     for act in vec2:
      control = act in salida2
      if not control:
-        salida2.append(act)
-        return salida2
+                 salida2.append(act)
+     return salida2
+
 
 # Full Outer Join
 def FullOuterJoin():
