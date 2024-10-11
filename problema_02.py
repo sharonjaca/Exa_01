@@ -19,7 +19,7 @@ def dias_laborales_mes(mes):
         11: 26,  # Noviembre
         12: 27  # Diciembre
     }
-    return dias_laborales.get(mes, 26)  # Valor por defecto si el mes no es válido
+    return dias_laborales.get(mes, 26)
 
 
 # ----------------------------------------------------
@@ -27,27 +27,27 @@ def dias_laborales_mes(mes):
 # ----------------------------------------------------
 def iniCubo(cb, num_empleados, num_semanas, num_dias):
     for fil in range(num_empleados):
-        for col in range(num_dias):  # Días laborales
-            for pro in range(num_semanas):  # Número de semanas que tiene el mes
-                cb[fil][col][pro] = random.randint(1, 12)  # Restricción de máximo 12 horas
+        for col in range(num_dias):
+            for pro in range(num_semanas):
+                cb[fil][col][pro] = random.randint(1, 12)
 
 
 # ----------------------------------------------------
 # Print cube of hours worked in table format
 # ----------------------------------------------------
 def impCubo(cb, empleados, num_semanas, num_dias):
-    dias_semana = ['L', 'K', 'M', 'J', 'V', 'S']  # Días de la semana
+    dias_semana = ['L', 'K', 'M', 'J', 'V', 'S']
     for fil in range(len(empleados)):
         print(f"Empleado: {empleados[fil]}")
         for sem in range(num_semanas):
-            # Imprimir los encabezados de los días solo en la primera semana
+
             if sem == 0:
                 print("Semana", end="   ")
                 for i in range(num_dias):
-                    print(f"{dias_semana[i % 6]:>4}", end=" ")  # Ciclo a través de los días de la semana
+                    print(f"{dias_semana[i % 6]:>4}", end=" ")
                 print()
 
-            # Imprimir los datos de las horas trabajadas para la semana actual
+
             print(f"Semana {sem + 1}: ", end=" ")
             for col in range(num_dias):  # Días laborales
                 print(f"{cb[fil][col][sem]:>4}", end=" ")
